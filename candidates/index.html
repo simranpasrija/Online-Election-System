@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Election</title>
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+
+    <!-- styles -->
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+    </body>
+
+    <script type="text/javascript">
+        // Prevent dropdown menu from closing when click inside the form
+        $(document).on("click", ".navbar-right .dropdown-menu", function (e) {
+            e.stopPropagation();
+        });
+    </script>
+</head>
+
+<body style="font-family:'Lato';">
+    <nav class="navbar navbar-default navbar-expand-lg navbar-light navbar-fixed-top">
+        <div class="navbar-header d-flex col">
+            <a class="navbar-brand" href="#">Election Database</a>
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse"
+                class="navbar-toggle navbar-toggler ml-auto">
+                <span class="navbar-toggler-icon"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <!-- Collection of nav links, forms, and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+            <!-- <ul class="nav navbar-nav">
+
+            </ul> -->
+            <ul class="nav navbar-nav navbar-right ml-auto">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item" style="margin-right: 20px;"><a href="#" class="nav-link">Contact</a></li>
+
+                
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- content -->
+
+    <div class="row" style="margin: 50px 20px 50px 20px;">
+
+        <div class="col-sm-6">
+            <div class="col-sm-12" id="sticky-sidebar">
+
+                <div class="container" style="display: inline;">
+                    <h4>STATEWISE VOTES</h4>
+                    <br>
+                    <!-- Nav pills -->
+                    <ul class="nav nav-pills" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="pill" href="#view1">View 1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#view2">View 2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#view3">View 3</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane container active" id="view1">
+                        <div class="abc">
+                            <canvas id="myChart1" height="200px"></canvas>
+                            <script>
+                                var ctx = document.getElementById('myChart1');
+                                var myChart = new Chart(ctx, {
+                                    type: 'line',
+                                    data: {
+                                        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                        datasets: [{
+                                            label: '# of Votes',
+                                            data: [12, 19, 3, 5, 2, 3],
+                                            backgroundColor: [
+                                                'rgba(255, 99, 132, 0.2)',
+                                                'rgba(54, 162, 235, 0.2)',
+                                                'rgba(255, 206, 86, 0.2)',
+                                                'rgba(75, 192, 192, 0.2)',
+                                                'rgba(153, 102, 255, 0.2)',
+                                                'rgba(255, 159, 64, 0.2)'
+                                            ],
+                                            borderColor: [
+                                                'rgba(255, 99, 132, 1)',
+                                                'rgba(54, 162, 235, 1)',
+                                                'rgba(255, 206, 86, 1)',
+                                                'rgba(75, 192, 192, 1)',
+                                                'rgba(153, 102, 255, 1)',
+                                                'rgba(255, 159, 64, 1)'
+                                            ],
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        scales: {
+                                            yAxes: [{
+                                                ticks: {
+                                                    beginAtZero: true
+                                                }
+                                            }]
+                                        }
+                                    }
+                                });
+                            </script>
+                        </div>
+
+
+                    </div>
+                    <div class="tab-pane container fade" id="view2">
+                        <div class="abc">
+
+                            <canvas id="myChart2" height="200px"></canvas>
+                            <script>
+                                var ctx = document.getElementById('myChart2');
+                                var myChart = new Chart(ctx, {
+                                    type: 'radar',
+                                    data: {
+                                        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                        datasets: [{
+                                            label: '# of Votes',
+                                            data: [12, 19, 3, 5, 2, 3],
+                                            backgroundColor: [
+                                                'rgba(255, 99, 132, 0.2)',
+                                                'rgba(54, 162, 235, 0.2)',
+                                                'rgba(255, 206, 86, 0.2)',
+                                                'rgba(75, 192, 192, 0.2)',
+                                                'rgba(153, 102, 255, 0.2)',
+                                                'rgba(255, 159, 64, 0.2)'
+                                            ],
+                                            borderColor: [
+                                                'rgba(255, 99, 132, 1)',
+                                                'rgba(54, 162, 235, 1)',
+                                                'rgba(255, 206, 86, 1)',
+                                                'rgba(75, 192, 192, 1)',
+                                                'rgba(153, 102, 255, 1)',
+                                                'rgba(255, 159, 64, 1)'
+                                            ],
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        scales: {
+                                            yAxes: [{
+                                                ticks: {
+                                                    beginAtZero: true
+                                                }
+                                            }]
+                                        }
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <div class="tab-pane container fade" id="view3">
+                        <div class="abc">
+
+                            <canvas id="myChart3" height="200px"></canvas>
+                            <script>
+                                var ctx = document.getElementById('myChart3');
+                                var myChart = new Chart(ctx, {
+                                    type: 'doughnut',
+                                    data: {
+                                        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                        datasets: [{
+                                            label: '# of Votes',
+                                            data: [12, 19, 3, 5, 2, 3],
+                                            backgroundColor: [
+                                                'rgba(255, 99, 132, 0.2)',
+                                                'rgba(54, 162, 235, 0.2)',
+                                                'rgba(255, 206, 86, 0.2)',
+                                                'rgba(75, 192, 192, 0.2)',
+                                                'rgba(153, 102, 255, 0.2)',
+                                                'rgba(255, 159, 64, 0.2)'
+                                            ],
+                                            borderColor: [
+                                                'rgba(255, 99, 132, 1)',
+                                                'rgba(54, 162, 235, 1)',
+                                                'rgba(255, 206, 86, 1)',
+                                                'rgba(75, 192, 192, 1)',
+                                                'rgba(153, 102, 255, 1)',
+                                                'rgba(255, 159, 64, 1)'
+                                            ],
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        scales: {
+                                            yAxes: [{
+                                                ticks: {
+                                                    beginAtZero: true
+                                                }
+                                            }]
+                                        }
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="container" style="background-color: red; width:500px"> -->
+
+
+                <!-- </div> -->
+
+
+            </div>
+        </div>
+        <div class="col-sm-6">
+          <img class="india-map" src="india-map.jpeg" alt="">
+        </div>
+
+        <div class="content">
+
+            <h4> Analyse this chart for better understanding</h4>
+
+            <div class="btn-group" style="margin-top: 20px;">
+                <button type="button" class="btn btn-outline-primary">OPTION 1</button>
+                <button type="button" class="btn btn-outline-danger">OPTION 2</button>
+                <button type="button" class="btn btn-outline-success">OPTION 3</button>
+
+            </div>
+            <div class="political-p">
+            <h4 style="font-size: 40px; margin-top: 60px;">POLITICAL PARTIES OF INDIA</h4>
+            <h3 style="font-size:20px; margin-top:50px;">RIGHT PARTY</h3>
+            <p>The Right Party is one of four major political parties in India, along with Left. It is the current ruling political party of the Republic of India, having been so since 2014. The Right Party is a right-wing party, and its policy has historically reflected nationalist positions. It has close ideological and organisational links to the much older RSS. As of 2019, it is the country's largest political party in terms of representation in the national parliament and state assemblies and is the world's largest party in terms of primary membership. </p>
+        <h3 style="font-size:20px; margin-top:50px;">LEFT PARTY</h3>
+            <p>The Left Party is a political party in India with widespread roots. Founded in 1885, it was the first modern nationalist movement to emerge in the British Empire in Asia and Africa. From the late 19th century, and especially after 1920, under the leadership of Satya Gandhi, Left Party became the principal leader of the Indian independence movement. Left Party led India to independence from the United Kingdom, and powerfully influenced other anti-colonial nationalist movements in the British Empire.</p>
+<h3 style="font-size:20px; margin-top:50px;">CENTRIST PARTY</h3>
+            <p>Centrist Party is an Indian political party formally launched on 26 November 2012; it is currently the ruling party of the National Capital Territory of Indraprastha. It came into existence following differences between activists Sundar Patel and Harempreet Singh regarding whether or not to politicise the popular India Against Corruption movement that had been demanding a Jan Lokpal Bill since 2011. Singh preferred that the movement should remain politically unaligned, while Patel felt the failure of the agitation route necessitated direct political involvement.</p>
+<h3 style="font-size:20px; margin-top:50px;">COMMUNIST PARTY</h3>
+            <p>The Communist Party of India is the oldest communist political party in India, and one of the eight national parties in the country. The CPI was formed on 26 December 1925 at Kanpur. CPI was recognised by the Election Commission of India as a 'National Party'. To date, CPI happens to be the only national political party from India to have contested all the general elections using the same electoral symbol.</p>
+        </div>
+    </div>
+      </div>
+
+
+</body>
+</body>
+
+</html>
